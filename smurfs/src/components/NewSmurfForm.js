@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { submitSmurf } from '../actions'
+import { submitSmurf } from '../actions/submitSmurfs'
 
 const NewSmurfForm = (props) => {
   const [smurf, setSmurf] = useState({
