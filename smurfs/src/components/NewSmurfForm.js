@@ -4,11 +4,13 @@ import { connect } from 'react-redux'
 import { submitSmurf } from '../actions/submitSmurfs'
 
 const NewSmurfForm = (props) => {
+
   const [smurf, setSmurf] = useState({
     name: '',
     age: '',
     height: ''
   })
+  
   // console.log('smurf check', smurf)
   const handleChange = (e) => {
     setSmurf({ ...smurf, [e.target.name]: e.target.value })

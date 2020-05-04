@@ -5,15 +5,15 @@ export const FETCH_SMURFS_SUCCESS = 'FETCH_SMURFS_SUCCESS'
 export const FETCH_SMURFS_FAILURE = 'FETCH_SMURFS_FAILURE'
 
 export const getSmurfs = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({ type: FETCH_SMURFS_START })
     axios
       .get('http://localhost:3333/smurfs')
-      .then((res) => {
+      .then(res => {
         dispatch({ type: FETCH_SMURFS_SUCCESS, payload: res.data })
       })
-      .catch((err) => {
+      .catch(err =>
         dispatch({ type: FETCH_SMURFS_FAILURE, payload: err.response })
-      })
+      )
   }
 }
