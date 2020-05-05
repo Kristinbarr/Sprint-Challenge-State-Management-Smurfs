@@ -3,25 +3,20 @@ import { connect } from 'react-redux'
 
 import { submitSmurf } from '../actions/submitSmurfs'
 
-const NewSmurfForm = (props) => {
-  const [smurf, setSmurf] = useState({
-    name: '',
-    age: '',
-    height: ''
-  })
-  // console.log('smurf check', smurf)
-  const handleChange = (e) => {
+const NewSmurfForm = props => {
+
+  const [smurf, setSmurf] = useState({ name: '', age: '', height: '' })
+
+  console.log('props:', props)
+  
+  const handleChange = e => {
     setSmurf({ ...smurf, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault()
     props.submitSmurf(smurf)
-    setSmurf({
-      name: '',
-      age: '',
-      height: ''
-    })
+    setSmurf({ name: '', age: '', height: '' })
   }
 
   return (
@@ -30,23 +25,23 @@ const NewSmurfForm = (props) => {
       <form onSubmit={handleSubmit}>
         <label>NAME:</label>
         <input
-          type='text'
+          type="text"
           value={smurf.name}
-          name='name'
+          name="name"
           onChange={handleChange}
         />
         <label>AGE:</label>
         <input
-          type='text'
+          type="text"
           value={smurf.age}
-          name='age'
+          name="age"
           onChange={handleChange}
         />
         <label>HEIGHT:</label>
         <input
-          type='text'
+          type="text"
           value={smurf.height}
-          name='height'
+          name="height"
           onChange={handleChange}
         />
         <button>Add</button>
@@ -55,13 +50,10 @@ const NewSmurfForm = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    smurfs: state.smurfs
+    smurfs: state.smurfs,
   }
 }
 
-export default connect(
-  mapStateToProps,
-  { submitSmurf }
-)(NewSmurfForm)
+export default connect(mapStateToProps, { submitSmurf })(NewSmurfForm)
