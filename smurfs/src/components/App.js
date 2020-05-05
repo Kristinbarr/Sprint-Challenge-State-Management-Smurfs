@@ -1,9 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import { connect } from 'react-redux'
 import NewSmurfForm from './NewSmurfForm'
 import SmurfList from "./SmurfList";
+import { getSmurfs } from '../actions/getSmurfs'
 import "./App.css";
 
 class App extends Component {
+  componentDidMount () {
+    this.props.dispatch(getSmurfs())
+  }
   render() {
     return (
       <div className="App">
@@ -16,4 +21,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  null,
+  null
+)(App)
