@@ -1,0 +1,26 @@
+.smurf-list {
+  padding: 1rem;
+  margin: 2rem 20%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.smurf-list-title {
+  padding: 1rem;
+  margin: 0 2rem;
+  border: 5px solid teal;
+  border-radius: 50px;
+}
+
+.smurf-info {
+  margin: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid grey;
+}
+span {
+  margin: 0 1rem 0 0.2rem;
+}
+
+button {
+  padding: 0.5rem;
+  background-color: palevioletred;
+}

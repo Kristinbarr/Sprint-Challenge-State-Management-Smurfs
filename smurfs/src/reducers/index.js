@@ -17,7 +17,8 @@ export const initialState = {
 }
 
 export const reducer = (state = initialState, action) => {
-  console.log('ACTION.TYPE:', action.type, 'ACTION.PAYLOAD:', action.payload)
+  console.log('ACTION.TYPE:', action.type)
+  console.log('ACTION.PAYLOAD:', action.payload)
   switch (action.type) {
     // SUBMIT SMURF
     case SUBMIT_SMURF_START:
@@ -35,7 +36,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        error: 'Error submitting smurf!'
+        error: 'Error submitting smurf!' + action.payload
       }
     // FETCH SMURFS
     case FETCH_SMURFS_START:
@@ -64,7 +65,7 @@ export const reducer = (state = initialState, action) => {
     case DELETE_SMURF_SUCCESS:
       return {
         ...state,
-        smurfs: [...state.smurfs, action.payload],
+        smurfs: action.payload,
         isLoading: false,
       }
     case DELETE_SMURF_FAILURE:

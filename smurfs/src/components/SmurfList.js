@@ -4,6 +4,8 @@ import Loader from 'react-loader-spinner'
 
 import { getSmurfs, deleteSmurf } from '../actions'
 
+import './SmurfList.css'
+
 const SmurfList = props => {
   
   const [smurfList, setSmurfList] = useState([])
@@ -14,8 +16,8 @@ const SmurfList = props => {
   }, [props.smurfs.length])
 
   return (
-    <div className="tile">
-      <h3 className="title">SMURF VILLAGE RESIDENTS:</h3>
+    <div className="smurf-list">
+      <h3 className="smurf-list-title">SMURF VILLAGE RESIDENTS:</h3>
       {/* <button onClick={props.getSmurfs}>show smurfs</button> */}
 
       {props.isLoading && (
@@ -27,8 +29,8 @@ const SmurfList = props => {
       ) : (
         smurfList &&
         smurfList.map(smurf => (
-          <div key={smurf.id}>
-            <p>NAME: {smurf.name}</p>
+          <div className="smurf-info" key={smurf.id}>
+            <span>NAME: {smurf.name}</span>
             <span>AGE: {smurf.age}&nbsp;&nbsp;</span>
             <span>HEIGHT: {smurf.height}</span>
             <button onClick={() => props.deleteSmurf(smurf)}>DELETE</button>
