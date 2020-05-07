@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 
 import { submitSmurf } from '../actions/submitSmurfs'
 
-const NewSmurfForm = props => {
+import './SmurfForm.css'
+
+const SmurfForm = props => {
 
   const [smurf, setSmurf] = useState({ name: '', age: '', height: '' })
-
-  console.log('props:', props)
   
   const handleChange = e => {
     setSmurf({ ...smurf, [e.target.name]: e.target.value })
@@ -20,7 +20,7 @@ const NewSmurfForm = props => {
   }
 
   return (
-    <div>
+    <div className='smurf-form'>
       <h3>REGISTER SMURF:</h3>
       <form onSubmit={handleSubmit}>
         <label>NAME:</label>
@@ -56,4 +56,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { submitSmurf })(NewSmurfForm)
+export default connect(mapStateToProps, { submitSmurf })(SmurfForm)

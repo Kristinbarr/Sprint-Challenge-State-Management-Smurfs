@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from 'react-redux'
-import NewSmurfForm from './NewSmurfForm'
+import SmurfForm from './SmurfForm'
 import SmurfList from "./SmurfList";
 import { getSmurfs } from '../actions/getSmurfs'
 import "./App.css";
@@ -13,9 +13,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>WELCOME TO THE SMURF VILLAGE 2.0 W/ Redux</h1>
-        <NewSmurfForm/>
+        <SmurfForm/>
         <SmurfList />
-        <img src="http://kidscreen.com/wp/wp-content/uploads/2013/05/TheSmurfs_01.jpg" alt='smurf village' />
       </div>
     );
   }
